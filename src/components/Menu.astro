@@ -1,0 +1,79 @@
+---
+const pizzas = [
+  {
+    name: "Margherita dal '64",
+    price: "₡8,500",
+    description:
+      "Tomate San Marzano, fior di latte, albahaca fresca y aceite de oliva extra virgen, tal como en la receta original.",
+    image:
+      "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80",
+    alt: "Pizza Margherita con tomate, mozzarella fresca y hojas de albahaca sobre corteza dorada",
+  },
+  {
+    name: "Prosciutto & Funghi",
+    price: "₡10,500",
+    description:
+      "Prosciutto di Parma, hongos silvestres salteados, mozzarella y un toque de trufa.",
+    image:
+      "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=800&q=80",
+    alt: "Pizza con jamón prosciutto, hongos y queso mozzarella derretido",
+  },
+  {
+    name: "Fusión Tica",
+    price: "₡11,000",
+    description:
+      "Chorizo de la zona, chile dulce, cebolla morada, cilantro y queso local sobre base de tomate.",
+    image:
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80",
+    alt: "Pizza con ingredientes costarricenses, chorizo, vegetales y cilantro fresco",
+  },
+];
+---
+
+<section id="menu" class="py-16 md:py-24">
+  <div class="container-heritage">
+    <div class="mb-12 flex flex-col items-start gap-4 md:mb-16">
+      <span class="font-body text-sm font-semibold uppercase tracking-[0.05em] text-secondary">
+        Menu
+      </span>
+      <h2 class="font-headline text-[32px] font-semibold leading-[40px] text-on-surface">
+        Del horno de leña a tu mesa
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+      {
+        pizzas.map((pizza) => (
+          <article class="flex flex-col">
+            <div class="overflow-hidden rounded-lg">
+              <img
+                src={pizza.image}
+                alt={pizza.alt}
+                class="h-56 w-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="mt-5 leader-row">
+              <h3 class="font-headline text-xl font-semibold text-on-surface">
+                {pizza.name}
+              </h3>
+              <span class="leader-dots" aria-hidden="true" />
+              <span class="font-body text-base font-semibold text-secondary">
+                {pizza.price}
+              </span>
+            </div>
+
+            <p class="mt-2 font-body text-sm leading-5 text-on-surface-variant">
+              {pizza.description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-14 flex justify-center">
+      <a href="#" class="btn-secondary">Ver Menú Completo</a>
+    </div>
+  </div>
+</section>
