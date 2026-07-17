@@ -16,6 +16,14 @@
         </p>
       </div>
 
+      <noscript>
+        <p class="mt-12 border border-tertiary/15 px-6 py-4 text-center font-body text-sm text-on-surface-variant">
+          Este formulario necesita JavaScript para enviarse. Mientras tanto, escribinos a
+          <a href="mailto:reservas@cachipizza.cr" class="text-secondary underline">reservas@cachipizza.cr</a>
+          o llamanos al <a href="tel:+50600000000" class="text-secondary underline">+506 0000-0000</a>.
+        </p>
+      </noscript>
+
       <form id="reservation-form" class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
         <div class="md:col-span-2">
           <label for="name" class="mb-2 block font-body text-sm font-semibold tracking-wide text-on-surface">
@@ -107,6 +115,8 @@
 </section>
 
 <script>
+  const form = document.getElementById("reservation-form") as HTMLFormElement | null;
+
   const dateInput = document.getElementById("date") as HTMLInputElement | null;
   if (dateInput) {
     const now = new Date();
@@ -116,7 +126,6 @@
     dateInput.min = `${year}-${month}-${day}`;
   }
 
-  const form = document.getElementById("reservation-form") as HTMLFormElement | null;
   const confirmation = document.getElementById("reservation-confirmation");
 
   form?.addEventListener("submit", (e) => {
